@@ -5,10 +5,10 @@ minification**, **concat & minify** JS files and **compile** LESS files.
 
 ## Installation
 
-  $ npm install
+    $ npm install
 
 ## Usage
   
-  $ gulp
+    $ gulp
 
 Will create and fire a livereload server serving the files in `dist/`.
