@@ -17,7 +17,7 @@ echo -n "Project name: "
 read name
 
 if [ -z "$name" ]; then
-    echo "Please specify a project name. Usage: sh install.sh my-project"
+    echo "Please specify a project name."
     exit
 fi
 
