@@ -8,7 +8,6 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
-var del = require('del');
 
 var paths = {
   less: 'src/less/style.less',
@@ -17,14 +16,7 @@ var paths = {
   html: 'src/*.html'
 };
 
-// Not all tasks need to use streams
-// A gulpfile is just another node program and you can use all packages available on npm
-gulp.task('clean', function(cb) {
-  // You can use multiple globbing patterns as you would with `gulp.src`
-  del(['dist'], cb);
-});
-
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     .pipe(concat('main.min.js'))
     .pipe(uglify())
@@ -32,14 +24,14 @@ gulp.task('scripts', ['clean'], function() {
     .pipe(reload({ stream: true }));
 });
 
-gulp.task('html', ['clean'], function() {
+gulp.task('html', function() {
   return gulp.src(paths.html)
     .pipe(gulp.dest('dist'))
     .pipe(reload({ stream: true }));
 });
 
 // Copy all static images
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
   return gulp.src(paths.images)
     // Pass in options to the task
     .pipe(imagemin({optimizationLevel: 5}))
@@ -47,7 +39,7 @@ gulp.task('images', ['clean'], function() {
     .pipe(reload({ stream: true }));
 });
 
-gulp.task('less', ['clean'], function() {
+gulp.task('less', function() {
   return gulp.src(paths.less)
     // Pass in options to the task
     .pipe(less())
