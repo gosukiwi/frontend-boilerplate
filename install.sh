@@ -13,21 +13,21 @@ if ! type "node" > /dev/null; then
   exit
 fi
  
-echo -n "Project name: "
-read name
+#echo -n "Project name: "
+#read name
+while [ -e $NAME ]
+do
+        echo -n "Project name: "
+        read NAME </dev/tty
+done
 
-if [ -z "$name" ]; then
-    echo "Please specify a project name."
+if [ -d "$NAME" ]; then
+    echo "The directory $NAME already exists, please use another name"
     exit
 fi
 
-if [ -d "$name" ]; then
-    echo "The directory $name already exists, please use another name"
-    exit
-fi
-
-git init "$name"
-cd "$name"
+git init "$NAME"
+cd "$NAME"
 git pull git@github.com:gosukiwi/frontend-boilerplate.git
 npm install
 gulp
