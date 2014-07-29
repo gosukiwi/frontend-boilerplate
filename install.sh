@@ -12,19 +12,22 @@ if ! type "node" > /dev/null; then
   echo "Frontend boilerplate requires Node to install, please install it then try again."
   exit
 fi
+ 
+echo -n "Project name: "
+read name
 
-if [ -z "$1" ]; then
+if [ -z "$name" ]; then
     echo "Please specify a project name. Usage: sh install.sh my-project"
     exit
 fi
 
-if [ -d "$1" ]; then
-    echo "The directory $1 already exists, please use another name"
+if [ -d "$name" ]; then
+    echo "The directory $name already exists, please use another name"
     exit
 fi
 
-git init "$1"
-cd "$1"
+git init "$name"
+cd "$name"
 git pull git@github.com:gosukiwi/frontend-boilerplate.git
 npm install
 gulp
