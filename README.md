@@ -18,7 +18,7 @@ And you are ready to rock!
 If you want a simple way to install it just run this command, some folks don't
 like this installation method though only do this if you trust me :)
 
-    $ curl http://bit.ly/1k61bey | sh
+    $ curl https://raw.githubusercontent.com/gosukiwi/frontend-boilerplate/master/install.sh | sh
 
 ## Usage
   
