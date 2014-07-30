@@ -10,7 +10,8 @@ var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 
 var paths = {
-  less: 'src/less/style.less',
+  less: 'src/less/**/*.less',
+  lessMain: 'src/less/style.less',
   scripts: 'src/js/**/*',
   images: 'src/img/**/*',
   html: 'src/*.html'
@@ -40,7 +41,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('less', function() {
-  return gulp.src(paths.less)
+  return gulp.src(paths.lessMain)
     // Pass in options to the task
     .pipe(less())
     .pipe(gulp.dest('dist/css'))
