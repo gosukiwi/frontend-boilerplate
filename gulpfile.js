@@ -7,7 +7,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
+var reload = browserSync.reload;
 var autoprefixer = require('gulp-autoprefixer');
 var csscomb = require('gulp-csscomb');
 
@@ -25,7 +25,7 @@ gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     .pipe(concat('main.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/static/js'))
+    .pipe(gulp.dest('dist/js'))
     .pipe(reload({ stream: true }));
 });
 
@@ -40,21 +40,21 @@ gulp.task('images', function() {
   return gulp.src(paths.images)
     // Pass in options to the task
     .pipe(imagemin({optimizationLevel: 5}))
-    .pipe(gulp.dest('dist/static/img'))
+    .pipe(gulp.dest('dist/img'))
     .pipe(reload({ stream: true }));
 });
 
 gulp.task('fonts', function() {
   return gulp.src(paths.fonts)
     // Pass in options to the task
-    .pipe(gulp.dest('dist/static/fonts'))
+    .pipe(gulp.dest('dist/fonts'))
     .pipe(reload({ stream: true }));
 });
 
 gulp.task('vendor', function() {
   return gulp.src(paths.vendor)
     // Pass in options to the task
-    .pipe(gulp.dest('dist/static/vendor'))
+    .pipe(gulp.dest('dist/vendor'))
     .pipe(reload({ stream: true }));
 });
 
@@ -72,7 +72,7 @@ gulp.task('less', function() {
       'Opera >= 12',
       'Safari >= 6']))
     .pipe(csscomb())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/css'))
     .pipe(reload({ stream: true }));
 });
 
