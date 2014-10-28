@@ -1,7 +1,8 @@
 # Frontend Boilerplate
-A simple frontend boilerplate which uses Gulp, LESS and PureCSS. It uses HTML
-markup from HTML5 Boilerplate, and features **livereload**, **image
-minification**, **concat & minify** JS files and **compile** LESS files.
+A simple and opinionated frontend boilerplate which uses Gulp, LESS and Thin. It
+uses HTML markup from HTML5 Boilerplate, and features **livereload**, **image
+minification**, **concat & minify** JS files, **compile** LESS files and
+organize and prefix CSS.
 
 ## Installation
 To install just grab the latest version from GitHub and install the
